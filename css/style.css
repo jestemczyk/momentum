@@ -1,0 +1,102 @@
+:root{
+    --main-color: #ffffff;
+    --additional-color: #d1d0d0;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(109, 109, 109);
+}
+
+.container{
+    max-width: 97%;
+    margin: auto;
+}
+
+.section2{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arr-button{
+    display: flex;
+    height: 80px;
+    width: 80px;
+    background: none;
+    border: none;
+    border-radius: 100px;
+    transition: background-color 0.3s;
+
+}
+
+#left-arrow{
+    background: url(./imgs/left-arrow-svgrepo-com.svg) no-repeat center/50%;
+}
+
+#right-arrow{
+    background: url(./imgs/right-arrow-svgrepo-com.svg) no-repeat center/50%;
+}
+
+.arr-button:hover{
+    background-color: rgba(0, 0, 0, 0.365) !important;
+}
+
+.sect2-main-div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--main-color);
+    font-family: inter;
+}
+
+.time-date-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time{
+    display: flex;
+    gap: 10px;
+    font-size: 85px;
+    font-weight: 700;
+}
+
+.date{
+    display: flex;
+    gap: 5px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.greeting{
+    display: flex;
+    gap: 10px;
+    font-size: 45px;
+    font-weight: 600;
+    margin-left: 330px;
+}
+
+.greeting input{
+    display: flex;
+    color: var(--main-color);
+    font-size: 45px;
+    font-weight: 600;
+    border: none;
+    background: none;
+}
+
+.greeting input:focus{
+    outline: none;
+}
+
+
+
+
