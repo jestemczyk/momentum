@@ -23,6 +23,7 @@ body{
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10%;
 }
 
 .arr-button{
@@ -37,11 +38,11 @@ body{
 }
 
 #left-arrow{
-    background: url(./imgs/left-arrow-svgrepo-com.svg) no-repeat center/50%;
+    background: url(./imgs/technical-imgs/left-arrow-svgrepo-com.svg) no-repeat center/50%;
 }
 
 #right-arrow{
-    background: url(./imgs/right-arrow-svgrepo-com.svg) no-repeat center/50%;
+    background: url(./imgs/technical-imgs/right-arrow-svgrepo-com.svg) no-repeat center/50%;
 }
 
 .arr-button:hover{
@@ -97,6 +98,36 @@ body{
     outline: none;
 }
 
+.sect3-main-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
 
+.sect3-reload{
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 100px;
+    background: url(./imgs/technical-imgs/reload.svg) center/35px no-repeat;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.sect3-reload:hover{
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+.sect3-reload:active{
+    transition: none;
+    background: url(./imgs/technical-imgs/reload.svg) center/35px no-repeat;
+}
+
+.sect3-main-div p{
+    font-family: inter;
+    font-size: 20px;
+    font-weight: 400;
+}
 
 

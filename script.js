@@ -28,17 +28,49 @@ function greetingTime(){
 }
 
 function insertUserName(inpt){
-    inpt.value = localStorage.userName ? JSON.parse(localStorage.userName) : '';
+    inpt.value = localStorage.momentumUserName ? JSON.parse(localStorage.momentumUserName) : '';
 }
+
+async function getRandomQuote(){
+
+    try {
+        const response = await fetch("./json/quotes.json");
+        if(!response.ok){
+            throw new error("Something went wrong with a quotes.json file");
+        }
+        const quotes = await response.json();
+        insertRandomQuote(quotes);
+        
+    } catch (err) {
+        console.error(err.message);
+    };
+    
+}
+
+function insertRandomQuote(quotes){
+    const quotesList = quotes.quotes_list;
+    let randomNumber = Math.floor(Math.random() * 59);
+    console.log(quotesList);
+    document.querySelector(".quote-text").innerText = `"${quotesList[randomNumber].quote}"`;
+    document.querySelector(".quote-author").innerText = quotesList[randomNumber].author;
+}
+
 
 greetingTime();
 insertUserName(userNameInput);
 
 getNewTime();
+getRandomQuote();
 setInterval(() => {
     getNewTime();    
 }, 1000);
 
 userNameInput.addEventListener("keyup", () => {
-    localStorage.userName = JSON.stringify(userNameInput.value);
+    localStorage.momentumUserName = JSON.stringify(userNameInput.value);
+});
+
+document.addEventListener("click", e => {
+    if(e.target === document.querySelector(".sect3-reload")){
+        getRandomQuote();
+    }
 });
