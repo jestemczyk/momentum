@@ -1,5 +1,5 @@
 const userNameInput = document.querySelector(".greeting input");
-const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsNames = ["January","February","March","April","May","June","July","August","September","October","November", "December"];
 
 
@@ -13,7 +13,7 @@ function getNewTime(){
    document.querySelector(".time-hours").textContent = hours.length > 1 ? hours : "0" + hours;
    document.querySelector(".time-minutes").textContent = minutes.length > 1 ? minutes : "0" + minutes;
    document.querySelector(".time-seconds").textContent = seconds.length > 1 ? seconds : "0" + seconds;
-   document.querySelector(".date-day-of-week").textContent = daysOfWeek[time.getDay() - 1] + ",";
+   document.querySelector(".date-day-of-week").textContent = daysOfWeek[time.getDay()] + ",";
    document.querySelector(".date-month").textContent = monthsNames[time.getMonth()];
    document.querySelector(".date-day-date").textContent = time.getDate();
 
@@ -62,6 +62,7 @@ insertUserName(userNameInput);
 getNewTime();
 getRandomQuote();
 setInterval(() => {
+    greetingTime();
     getNewTime();    
 }, 1000);
 
