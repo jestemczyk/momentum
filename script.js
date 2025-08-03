@@ -1,8 +1,17 @@
 const userNameInput = document.querySelector(".greeting input");
+const bgLeftArrow = document.getElementById("left-arrow");
+const bgRightArrow = document.getElementById("right-arrow");
+let bgCounter = localStorage.momentumBgCounter ? JSON.parse(localStorage.momentumBgCounter) : 1;
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthsNames = ["January","February","March","April","May","June","July","August","September","October","November", "December"];
 
-
+function onloadFunction(){
+    greetingTime();
+    insertUserName(userNameInput);
+    getNewTime();
+    getRandomQuote();
+    changeBg();
+}
 
 function getNewTime(){
    let time = new Date(); 
@@ -55,12 +64,28 @@ function insertRandomQuote(quotes){
     document.querySelector(".quote-author").innerText = quotesList[randomNumber].author;
 }
 
+function changeBg(){
+    const timeKeyWords = ["night","night","night","night","night","night","morning","morning","morning","morning","morning","afternoon","afternoon","afternoon","afternoon","afternoon","afternoon","evening","evening","evening","evening","evening","evening","night"];
+    let time = new Date();
+    let currKeyWord = timeKeyWords[time.getHours()];
+    document.querySelector("body").style.backgroundImage = `url(./css/imgs/background-imgs/${currKeyWord}/${currKeyWord}-picture-${bgCounter}.jpg)`;
 
-greetingTime();
-insertUserName(userNameInput);
+    localStorage.momentumBgCounter = JSON.stringify(bgCounter);
 
-getNewTime();
-getRandomQuote();
+}
+
+function bgLeft(){
+    bgCounter = bgCounter > 1 ? bgCounter - 1 : bgCounter;
+    changeBg();
+}
+
+function bgRight(){
+    bgCounter = bgCounter < 4 ? bgCounter + 1 : bgCounter;
+    changeBg();
+}
+
+onloadFunction();
+
 setInterval(() => {
     greetingTime();
     getNewTime();    
@@ -73,5 +98,11 @@ userNameInput.addEventListener("keyup", () => {
 document.addEventListener("click", e => {
     if(e.target === document.querySelector(".sect3-reload")){
         getRandomQuote();
+    }
+
+    if(e.target === bgLeftArrow){
+        bgLeft();
+    }else if(e.target === bgRightArrow){
+        bgRight();
     }
 });

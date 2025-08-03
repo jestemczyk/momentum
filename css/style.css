@@ -9,8 +9,17 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
 body{
-    background-color: rgb(109, 109, 109);
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./imgs/background-imgs/afternoon/afternoon-picture-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 0.5s;
+    -moz-transition: background 0.5s;
 }
 
 .container{
@@ -46,7 +55,7 @@ body{
 }
 
 .arr-button:hover{
-    background-color: rgba(0, 0, 0, 0.365) !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .sect2-main-div{
@@ -116,7 +125,7 @@ body{
 }
 
 .sect3-reload:hover{
-    background-color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.70);
 }
 
 .sect3-reload:active{
