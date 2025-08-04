@@ -68,7 +68,7 @@ function changeBg(){
     const timeKeyWords = ["night","night","night","night","night","night","morning","morning","morning","morning","morning","afternoon","afternoon","afternoon","afternoon","afternoon","afternoon","evening","evening","evening","evening","evening","evening","night"];
     let time = new Date();
     let currKeyWord = timeKeyWords[time.getHours()];
-    document.querySelector("body").style.backgroundImage = `url(./css/imgs/background-imgs/${currKeyWord}/${currKeyWord}-picture-${bgCounter}.jpg)`;
+    document.querySelector("body").style.background = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./css/imgs/background-imgs/${currKeyWord}/${currKeyWord}-picture-${bgCounter}.jpg)`;
 
     localStorage.momentumBgCounter = JSON.stringify(bgCounter);
 
